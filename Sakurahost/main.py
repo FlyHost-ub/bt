@@ -23,7 +23,7 @@ cp = pay.CryptoPay()
 keyboards = keyboards.Keyboards()
 docker = containers.Docker()
 
-@dp.register_message_handler(admin.cmd_users, commands=["users", "user"])
+# @dp.register_message_handler(admin.cmd_users, commands=["users", "user"])
 
 
 class DBMiddleware(BaseMiddleware):
@@ -86,7 +86,7 @@ async def cmd_debug(message: Message):
         await message.reply(str(e))
         
 @dp.message_handler(commands=['setbal'])
-async def send_message(message: types.Message):
+async def send_message(message: Message):
   if message.from_user.id == admin:
     money = int(message.text.split(maxsplit=2)[2])
     id = message.text.split(maxsplit=2)[1]
